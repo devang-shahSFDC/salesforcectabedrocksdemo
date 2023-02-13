@@ -1,0 +1,39 @@
+<template> 
+    <template for:each={mapRelatedObjectsData} for:item="mapRelatedObject">
+        <div  key={mapRelatedObject.key} class='inline'>
+            <lightning-layout-item padding="around-small">          
+                <lightning-button variant="brand" label={mapRelatedObject.value} title={mapRelatedObject.value} onclick={showModalPopup} data-name={mapRelatedObject.key} class="slds-m-left_x-small"></lightning-button>
+            </lightning-layout-item>  
+        </div>
+    </template>
+
+    <c-util-modal 
+        show-modal={showModal} 
+        show-positive={showPositiveButton}
+        positive-button-label={positiveButtonLabel} 
+        show-negative={showNegativeButton}
+        onpositive={closeModal}
+        onclose={closeModal}>
+        <div slot="header">
+            <h2 slot="header" id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">{modalHeader}</h2>
+        </div>
+        <div slot="body">
+            <template if:true={manageAttachmentVisible}>
+                <c-manage-documents record-id={recordId}></c-manage-documents>
+            </template>
+            <template if:true={viewAccountHierachyVisible}>
+                <c-account-tree-grid record-id={objectId}></c-account-tree-grid>
+            </template>
+            <template if:true={manageAccountVisible}>
+                <c-manage-account record-id={objectId}></c-manage-account>
+            </template>
+            <template if:true={manageContactsVisible}>
+                <c-manage-contacts record-id={objectId}></c-manage-contacts>
+            </template>
+            <template if:true={manageTasksVisible}>
+                <c-create-task record-id={recordId}></c-create-task>
+            </template>             
+                      
+        </div>    
+    </c-util-modal>
+</template>

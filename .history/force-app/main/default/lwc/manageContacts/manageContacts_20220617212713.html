@@ -1,0 +1,19 @@
+<template>
+    <lightning-card
+        title="Contacts"
+        icon-name="custom:custom63">
+        <div class="slds-var-m-around_medium">
+            <template if:true={contacts}>
+                <template for:each={contacts} for:item="contact">
+
+                    <div key={contact.Id}>                        
+                        <div>{contact.Name}</div>
+                        <div>{contact.Title}</div>
+                        <lightning-formatted-phone value={contact.Phone}></lightning-formatted-phone>
+                        <lightning-formatted-email value={contact.Email}></lightning-formatted-email>
+                    </div>
+                </template>
+            </template>
+        </div>
+    </lightning-card>
+</template>

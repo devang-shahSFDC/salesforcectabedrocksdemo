@@ -1,0 +1,51 @@
+<template>
+    <div class="container" style="background: white;
+    padding: 16px;">
+        <div style="margin-bottom: 50px;">
+            <img src={imageUrl} style="height:40px; width:150px"/>
+            <div style="display: inline-block;float: right;">
+                <div>Invoice #: {invoiceData.invoiceNo}</div>
+                <div>Created #: {invoiceData.invoiceCreated}</div>
+                <div>Due #: {invoiceData.invoiceDue}</div>
+            </div>
+        </div>
+        <div>
+            <div style="display: inline-block;">
+                <div> {invoiceData.companyName}</div>
+                <div> {invoiceData.address1}</div>
+                <div> {invoiceData.address2}</div>
+            </div>
+            <div style="display: inline-block;float: right; text-align: right;">
+                <div> {clientData.client}</div>
+                <div> {clientData.username}</div>
+                <div> {clientData.email}</div>
+            </div>
+        </div>
+        <div style="background: #eee;
+        margin: 16px 0px;
+        padding: 8px;">
+            <div  style="display: inline-block"><strong>Services</strong></div>
+            <div style="display: inline-block;float: right;"><strong>Amount</strong></div>
+        </div>
+        <!-- <div>
+            
+            <iframe width="100%" height="600" src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;coord=52.70967533219885, -8.020019531250002&amp;q=1%20Grafton%20Street%2C%20Dublin%2C%20Ireland&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><br />
+        </div> -->
+        <!-- <div>
+            <img src="https://maps.googleapis.com/maps/api/staticmap?center=Maidenhead,UK&zoom=14&size=400x400&key=AIzaSyAUecX975bramgoVzuBuX6tNycTqKh70uk" />
+        </div> -->
+        <!-- <div class="slds-m-around_medium">
+            <img src={einsteinUrl}/>            
+        </div> -->
+        <template iterator:service={services}>
+            <div key={service.value.name} style="padding: 8px;">
+                <div style="display: inline-block">{service.value.name}</div>
+                <div style="display: inline-block;float: right;">${service.value.amount}</div>
+            </div>
+            <div if:true={service.last} key={service.value.name}  style="padding: 8px;">
+                <div style="display: inline-block;float: right;"><strong>Total Amount:${totalAmount} </strong></div>
+            </div>
+        </template>
+    </div>
+    <lightning-button variant="brand" label="generate pdf" onclick={pdfHandler}></lightning-button>
+</template>

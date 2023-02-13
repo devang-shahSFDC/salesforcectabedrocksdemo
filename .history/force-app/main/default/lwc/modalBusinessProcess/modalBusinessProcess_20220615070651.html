@@ -1,0 +1,10 @@
+<template>
+    <div class="slds-color__background_gray-1 slds-color__border_gray-12">
+        Record Id : {recordId}
+    </div>   
+    <template for:each={mapRelatedObjectsData} for:item="mapRelatedObject">
+        <div  key={mapRelatedObject.key}>
+            <div title={mapRelatedObject.value}>{mapRelatedObject.value}</div>
+        </div>
+    </template>
+</template>

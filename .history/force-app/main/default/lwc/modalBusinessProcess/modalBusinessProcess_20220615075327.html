@@ -1,0 +1,12 @@
+<template>
+    <div class="slds-color__background_gray-1 slds-color__border_gray-12">
+        Record Id : {recordId}
+    </div>   
+    <template for:each={mapRelatedObjectsData} for:item="mapRelatedObject">
+        <div  key={mapRelatedObject.key}>
+            <lightning-layout-item padding="around-small">          
+                <lightning-button variant="brand" label={mapRelatedObject.value} title={mapRelatedObject.value} onclick={showModalPopup} class="slds-m-left_x-small"></lightning-button>
+            </lightning-layout-item>  
+        </div>
+    </template>
+</template>

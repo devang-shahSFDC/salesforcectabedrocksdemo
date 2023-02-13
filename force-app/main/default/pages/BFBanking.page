@@ -1,0 +1,14 @@
+<apex:page showHeader="false" sidebar="false">
+    
+    <head>
+        
+        
+    </head>
+    <body>        
+        <div class="page-container">
+            <h2>
+            BF Banking
+            </h2>
+        </div>
+    </body>
+</apex:page>

@@ -1,0 +1,12 @@
+public with sharing class DynamicQueryController {
+
+    @AuraEnabled(cacheable=true)
+    public static list<sobject> getRecord(Id recordId, string cols){
+        String objectName = recordId.getSObjectType().getDescribe().getName();
+        string condition = 'Id = ' + recordId;
+        string query = 'select '+String.escapeSingleQuotes(cols)+' from '+objectName+' where '+String.escapeSingleQuotes(condition);
+        list<sobject> records = Database.query(query);
+        return records;
+    }
+
+}

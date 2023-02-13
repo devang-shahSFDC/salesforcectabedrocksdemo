@@ -1,0 +1,22 @@
+<aura:component implements="force:hasRecordId,lightning:actionOverride,lightning:isUrlAddressable" controller="AccountController" access="global" >
+    <aura:attribute name="accId" type="String"/> 
+    <aura:attribute name="accName" type="String"/> 
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}" />
+    <!-- <p style="font-size:40px">Parent ID : {!v.accId}</p> 
+    <p style="font-size:40px">acc Name : {!v.accName}</p>  -->
+    <!-- <c:newOpportunity accountName="{!v.accName}" accId="{!v.accId}"/>  -->
+    <div class="slds-modal__content slds-p-aroundmedium">
+        <div>
+            <c:newOpportunity accountName="{!v.accName}" accId="{!v.accId}"/> 
+        </div>
+    </div>
+    <!-- <lightning:recordForm
+    aura:id="myRecordForm"
+    recordId="{!v.recordId}"
+    objectApiName="Opportunity"   
+    columns="2"
+    layoutType="Full"
+    mode="edit"
+    onsubmit="{!c.handleSubmit}" /> -->
+
+</aura:component>

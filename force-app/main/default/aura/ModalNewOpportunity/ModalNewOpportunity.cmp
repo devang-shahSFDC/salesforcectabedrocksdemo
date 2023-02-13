@@ -1,0 +1,14 @@
+<aura:component implements="force:hasRecordId,lightning:actionOverride,lightning:isUrlAddressable" controller="AccountController" access="global">
+    <!--Boolean attribute to indicate if modal is open or not 
+       default value is false as modal is closed when page is loaded 
+    -->
+    <aura:attribute name="isModalOpen" type="boolean" default="false"/>
+    <aura:attribute name="accId" type="Id"/> 
+    <aura:attribute name="accName" type="String"/> 
+    <aura:handler  name="init" action="{!c.doInit}" value="{!this}" />
+    <aura:handler name="change" value="{!v.pageReference}" action="{!c.reInit}" />
+    
+    <aura:if isTrue="{!v.isModalOpen}">
+        <c:newOpportunity accountName="{!v.accName}" accId="{!v.accId}"/> 
+    </aura:if>
+</aura:component>

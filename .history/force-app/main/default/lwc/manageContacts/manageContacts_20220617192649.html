@@ -1,0 +1,14 @@
+<template>
+    <template for:each={contacts} for:item="contact">    
+        <div key={contact.Id}>
+                <p>{contact.Name}</p>
+                <p>{contact.Title}</p>
+                <p>
+                    <lightning-formatted-phone
+                        value={contact.Phone}
+                    ></lightning-formatted-phone>
+                </p>
+        </div>
+    </template>
+
+</template>
