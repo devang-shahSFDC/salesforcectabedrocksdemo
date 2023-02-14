@@ -17,7 +17,8 @@ public with sharing class AccountController {
     public static List<Account> getCompanyHeadquartersAccount(){
 
         // Get Company Headquarters Name, set within custom metadata.
-        string accountName = GlobalUtils.getCompanyHeadquartersName();
+        //string accountName = GlobalUtils.getCompanyHeadquartersName();
+        string accountName = 'Bedrock Enterprises';
 
         List<Account> accounts =  [SELECT Id, Name, Description, BillingStreet, 
         BillingCountry, BillingCity, BillingState,
