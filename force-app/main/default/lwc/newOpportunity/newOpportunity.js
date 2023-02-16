@@ -19,7 +19,7 @@ export default class NewOpportunity extends NavigationMixin(LightningElement) {
         var yyyy = today.getFullYear();
         today = dd +  + mm +  + yyyy + ' ' + hh + ':' + min;
         const defaultValues = encodeDefaultFieldValues({
-            Name: this.accountName + '##' + today
+            Name: this.accountName + '###' + today
         });
 
         console.log(defaultValues);
