@@ -17,9 +17,9 @@ export default class NewOpportunity extends NavigationMixin(LightningElement) {
         var hh = String(today.getHours()).padStart(2, '0');
         var min = String(today.getMinutes()).padStart(2, '0');
         var yyyy = today.getFullYear();
-        today = dd +  + mm +  + yyyy + ' ' + hh + ':' + min;
+        today = dd +  mm +  yyyy + ' ' + hh + ':' + min;
         const defaultValues = encodeDefaultFieldValues({
-            Name: this.accountName + '##==' + today
+            Name: this.accountName + '~~~~' + today
         });
 
         console.log(defaultValues);
